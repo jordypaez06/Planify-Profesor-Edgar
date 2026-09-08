@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulta la información completa de un destino con Planify: datos del país, clima actual y pronóstico a 5 días.">
+  <title>Detalle del destino · Planify</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css?v=20260909">
+</head>
+<body>
+
+  <header class="navbar" id="navbar"></header>
+
+  <main>
+    <div class="detail-header" id="detailHeader">
+      <section class="page-hero container">
+        <span class="section-tag">Detalle del destino</span>
+        <h1 id="detailTitle">Cargando información...</h1>
+        <p id="detailSubtitle">Consultando los datos del país seleccionado.</p>
+      </section>
+    </div>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div id="messageArea"></div>
+
+        <div class="detail-panel">
+          <!-- Estado de carga general -->
+          <div class="card loading-state" id="loadingPanel">
+            <div class="spinner"></div>
+            <p>Cargando información del destino...</p>
+          </div>
+
+          <!-- Contenido del detalle -->
+          <div class="card" id="detailContent" style="display:none;">
+            <div class="detail-head">
+              <img id="detailFlag" class="detail-flag" src="" alt="Bandera del país">
+              <div class="detail-title">
+                <h1 id="detailName">—</h1>
+                <p class="detail-capital" id="detailCapital"><i class="bi bi-geo-alt"></i> —</p>
+                <div class="detail-chips">
+                  <span class="chip" id="detailRegionChip"><i class="bi bi-globe2"></i> —</span>
+                  <span class="chip" id="detailStatusChip"><i class="bi bi-circle-fill"></i> Independiente</span>
+                </div>
+              </div>
+              <div class="detail-head-actions">
+                <button class="btn btn-outline" id="favoriteBtn"><i class="bi bi-heart"></i> <span>Agregar a favoritos</span></button>
+                <a class="btn btn-secondary" href="itinerary.html"><i class="bi bi-calendar3"></i> Crear viaje</a>
+              </div>
+            </div>
+
+            <div class="detail-body">
+              <!-- Información general -->
+              <div>
+                <div class="detail-section">
+                  <h2><i class="bi bi-info-circle"></i> Información general</h2>
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <div class="info-label">Nombre oficial</div>
+                      <div class="info-value" id="detailOfficialName">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Capital</div>
+                      <div class="info-value" id="detailCapitalValue">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Región</div>
+                      <div class="info-value" id="detailRegion">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Subregión</div>
+                      <div class="info-value" id="detailSubregion">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Población</div>
+                      <div class="info-value" id="detailPopulation">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Idiomas</div>
+                      <div class="info-value" id="detailLanguages">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Moneda</div>
+                      <div class="info-value" id="detailCurrencies">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Código</div>
+                      <div class="info-value" id="detailCode">—</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h2><i class="bi bi-globe2"></i> Información geográfica</h2>
+                  <div class="info-grid">
+                    <div class="info-item">
+                      <div class="info-label">Coordenadas</div>
+                      <div class="info-value" id="detailCoords">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Área</div>
+                      <div class="info-value" id="detailArea">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Zona horaria</div>
+                      <div class="info-value" id="detailTimezone">—</div>
+                    </div>
+                    <div class="info-item">
+                      <div class="info-label">Lado de conducción</div>
+                      <div class="info-value" id="detailCarSide">—</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Pronóstico de varios días -->
+                <div class="detail-section">
+                  <h2><i class="bi bi-calendar-week"></i> Pronóstico (5 días)</h2>
+                  <div class="forecast-grid" id="forecastGrid">
+                    <div class="loading-state" style="padding: 20px;"><div class="spinner"></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Clima -->
+              <aside>
+                <div class="weather-card" id="weatherCard">
+                  <h2><i class="bi bi-cloud-sun"></i> Clima en la capital</h2>
+                  <div class="weather-now">
+                    <div class="weather-icon" id="weatherIcon">—</div>
+                    <div>
+                      <div class="weather-temp" id="weatherTemp">—</div>
+                      <div class="weather-desc" id="weatherDesc">Cargando clima...</div>
+                    </div>
+                  </div>
+                  <div class="weather-details">
+                    <div class="weather-detail-item">
+                      <div class="wd-label">Viento</div>
+                      <div class="wd-value" id="weatherWind">—</div>
+                    </div>
+                    <div class="weather-detail-item">
+                      <div class="wd-label">Lluvia</div>
+                      <div class="wd-value" id="weatherRain">—</div>
+                    </div>
+                    <div class="weather-detail-item">
+                      <div class="wd-label">Sensación</div>
+                      <div class="wd-value" id="weatherFeels">—</div>
+                    </div>
+                    <div class="weather-detail-item">
+                      <div class="wd-label">Humedad</div>
+                      <div class="wd-value" id="weatherHumidity">—</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CTA lateral -->
+                <div class="cta-section" style="padding: 30px 24px;">
+                  <h2 style="font-size: 1.3rem;">¿Te gusta este destino?</h2>
+                  <p style="font-size: 0.95rem; margin-bottom: 18px;">Guárdalo en favoritos o crea un itinerario con él.</p>
+                  <div class="cta-actions" style="flex-direction: column;">
+                    <button class="btn btn-secondary" id="favoriteBtn2"><i class="bi bi-heart"></i> <span>Guardar como favorito</span></button>
+                    <a href="favorites.html" class="btn btn-outline-light btn-small">Ver favoritos</a>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <!-- Estado de error -->
+          <div class="card error-state" id="errorPanel" style="display:none;">
+            <div class="error-icon">😕</div>
+            <h3>No pudimos cargar este destino</h3>
+            <p id="errorText">Lo sentimos, ocurrió un error inesperado.</p>
+            <div style="margin-top: 16px;">
+              <a href="explore.html" class="btn btn-primary">Volver a explorar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/app.js?v=20260916"></script>
+  <script src="../js/detail.js?v=20260916"></script>
+</body>
+</html>

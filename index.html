@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Planify - Plataforma inteligente para planificar tus viajes. Explora países, consulta el clima y crea tu itinerario.">
+  <title>Planify · Planifica tu viaje perfecto</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20260908">
+</head>
+<body>
+
+  <!-- Navbar (se inyecta con JavaScript) -->
+  <header class="navbar" id="navbar"></header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1800&q=60" alt="">
+      </div>
+      <div class="hero-content container">
+        <h1>Explora el mundo, planifica tu próximo viaje</h1>
+        <p>Descubre países, consulta el clima de tu destino y organiza un itinerario completo. Todo desde una sola aplicación.</p>
+
+        <!-- Buscador de destinos -->
+        <form class="hero-search search-bar" id="heroSearchForm" role="search">
+          <i class="bi bi-search search-icon" aria-hidden="true"></i>
+          <input type="text" id="heroSearchInput" placeholder="Busca un destino (ej. Colombia, Japan...)" aria-label="Buscar destino">
+          <button class="btn btn-primary" type="submit">Buscar</button>
+        </form>
+
+        <div class="hero-actions">
+          <a href="pages/explore.html" class="btn btn-outline-light"><i class="bi bi-compass"></i> Explorar destinos</a>
+          <a href="pages/itinerary.html" class="btn btn-secondary"><i class="bi bi-calendar3"></i> Crear itinerario</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-number">130+</div><div class="stat-label">Países explorables</div></div>
+          <div class="stat"><div class="stat-number">5 días</div><div class="stat-label">de pronóstico</div></div>
+          <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Gratis</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DESTINOS DESTACADOS ============ -->
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Destinos destacados</span>
+          <h2>Lugares que aman los viajeros</h2>
+          <p>Selección de destinos populares para inspirar tu próxima aventura.</p>
+        </div>
+
+        <div class="grid-destinations" id="featuredGrid">
+          <!-- Tarjetas generadas por JavaScript -->
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Cargando destinos destacados...</p>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 36px;">
+          <a href="pages/explore.html" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Ver todos los destinos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE PLANIFY ============ -->
+    <section class="section" style="background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">¿Por qué Planify?</span>
+          <h2>Todo lo que necesitas para viajar mejor</h2>
+          <p>Una herramienta académica diseñada para que planificar un viaje sea simple y divertido.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="feature-card">
+            <div class="feature-icon"><i class="bi bi-compass"></i></div>
+            <h3>Explora destinos</h3>
+            <p>Consulta información real de más de 130 países: capital, población, región, idiomas y moneda, gracias a REST Countries.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i class="bi bi-cloud-sun"></i></div>
+            <h3>Clima en vivo</h3>
+            <p>Revisa la temperatura, viento y probabilidad de lluvia de cualquier lugar con pronóstico a 5 días vía Open-Meteo.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i class="bi bi-heart"></i></div>
+            <h3>Guarda favoritos</h3>
+            <p>Marca los países que quieres visitar y tenlos siempre a mano. Se guardan localmente en tu navegador.</p>
+          </article>
+          <article class="feature-card feature-card--alt">
+            <div class="feature-icon"><i class="bi bi-calendar-check"></i></div>
+            <h3>Organiza tu viaje</h3>
+            <p>Crea itinerarios con fechas, número de viajeros y presupuesto estimado para llevar el control de tu aventura.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-section">
+          <h2>¿Listo para tu próxima aventura?</h2>
+          <p>Empieza ahora: explora el mundo, guarda tus destinos soñados y arma tu itinerario en minutos.</p>
+          <div class="cta-actions">
+            <a href="pages/explore.html" class="btn btn-outline-light"><i class="bi bi-compass"></i> Explorar destinos</a>
+            <a href="pages/itinerary.html" class="btn btn-secondary"><i class="bi bi-calendar3"></i> Crear itinerario</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (se inyecta con JavaScript) -->
+  <footer class="footer" id="footer"></footer>
+
+  <script src="js/app.js?v=20260916"></script>
+  <script src="js/home.js?v=20260908"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Fondo -->
+  <rect width="900" height="600" fill="#ffffff"/>
+  <!-- Franjas horizontales verde/blanco (4 verdes, 3 blancas) -->
+  <rect width="900" height="85.71" y="0" fill="#17965a"/>
+  <rect width="900" height="85.71" y="171.43" fill="#17965a"/>
+  <rect width="900" height="85.71" y="342.86" fill="#17965a"/>
+  <rect width="900" height="85.71" y="514.29" fill="#17965a"/>
+  <!-- Cantón rojo -->
+  <rect width="360" height="342.86" fill="#d02b3a"/>
+  <defs>
+    <!-- Estrella de 5 puntas centrada en (0,0) -->
+    <polygon id="star7" points="0,-14 4.36,-3.17 4.33,-13.32 -1.66,-5.12 -11.33,-8.23 -5.39,0 -11.33,8.23 -1.66,5.12 4.33,13.32 4.36,3.17" fill="#ffffff"/>
+    <!-- Mano abierta: palma + 5 dedos -->
+    <g id="hand7">
+      <rect x="195" y="170" width="80" height="70" rx="16" fill="#ffffff"/>
+      <rect x="203" y="128" width="12" height="46" rx="6" fill="#ffffff"/>
+      <rect x="221" y="128" width="12" height="46" rx="6" fill="#ffffff"/>
+      <rect x="239" y="128" width="12" height="46" rx="6" fill="#ffffff"/>
+      <rect x="257" y="128" width="12" height="46" rx="6" fill="#ffffff"/>
+      <rect x="275" y="128" width="12" height="46" rx="6" fill="#ffffff"/>
+    </g>
+  </defs>
+  <!-- 7 estrellas en arco sobre la mano -->
+  <use href="#star7" x="150" y="104"/>
+  <use href="#star7" x="183" y="82"/>
+  <use href="#star7" x="224" y="74"/>
+  <use href="#star7" x="265" y="82"/>
+  <use href="#star7" x="298" y="104"/>
+  <use href="#star7" x="182" y="142"/>
+  <use href="#star7" x="266" y="142"/>
+  <use href="#hand7" x="0" y="0"/>
+</svg>

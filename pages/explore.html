@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora todos los países del mundo con Planify. Busca, filtra por región y conoce datos de cada destino.">
+  <title>Explorar destinos · Planify</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css?v=20260909">
+</head>
+<body>
+
+  <header class="navbar" id="navbar"></header>
+
+  <main>
+    <section class="page-hero container">
+      <span class="section-tag">Explorar</span>
+      <h1>Explora el mundo</h1>
+      <p>Busca cualquier país, filtra por región y descubre datos útiles para planificar tu viaje.</p>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+
+        <div id="messageArea"></div>
+
+        <!-- Barra de herramientas: búsqueda + filtros -->
+        <div class="toolbar">
+          <form class="search-bar" id="searchForm" role="search">
+            <i class="bi bi-search search-icon" aria-hidden="true"></i>
+            <input type="text" id="searchInput" placeholder="Buscar país, capital o código (ej. Colombia, Bogotá, CO)..." aria-label="Buscar país">
+            <button class="btn btn-primary btn-small" type="submit">Buscar</button>
+          </form>
+          <div class="filter-btns" id="regionFilters" role="group" aria-label="Filtrar por región">
+            <button class="filter-btn active" data-region="all">Todos</button>
+            <button class="filter-btn" data-region="Africa">África</button>
+            <button class="filter-btn" data-region="Americas">América</button>
+            <button class="filter-btn" data-region="Asia">Asia</button>
+            <button class="filter-btn" data-region="Europe">Europa</button>
+            <button class="filter-btn" data-region="Oceania">Oceanía</button>
+          </div>
+          <span class="result-count" id="resultCount"></span>
+        </div>
+
+        <!-- Contenedor de tarjetas -->
+        <div class="grid-destinations" id="countriesGrid">
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Cargando países...</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/app.js?v=20260916"></script>
+  <script src="../js/explore.js?v=20260913"></script>
+</body>
+</html>
